@@ -14,6 +14,17 @@ export default function App() {
   const [running, setRunning] = useState(false);
   const [badgeVisible, setBadgeVisible] = useState(true);
   const intervalRef = useRef(null);
+  
+  const [customExercises, setCustomExercises] = useState([]);
+
+  const addExerciseToCustom = useCallback((ex) => {
+    setCustomExercises(prev => {
+      if (prev.find(e => e.id === ex.id)) {
+        return prev.filter(e => e.id !== ex.id);
+      }
+      return [...prev, ex];
+    });
+  }, []);
 
   useEffect(() => {
     if (running) {
@@ -39,15 +50,10 @@ export default function App() {
       <Sidebar page={page} navigate={navigate} badgeVisible={badgeVisible} />
       <div className="main">
         {page === 'home' && <Home navigate={navigate} />}
-        {page === 'exercises' && <Exercises />}
+        {page === 'exercises' && <Exercises addExerciseToCustom={addExerciseToCustom} customExercises={customExercises} />}
         {page === 'explore' && <Explore />}
         {page === 'library' && (
-          <Library
-            seconds={seconds}
-            running={running}
-            toggleTimer={toggleTimer}
-            resetTimer={resetTimer}
-          />
+          <Library navigate={navigate} customExercises={customExercises} />
         )}
         {page === 'progress' && <Progress />}
         {page === 'profile' && <Profile />}
