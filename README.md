@@ -1,16 +1,23 @@
-FitSync
+# FitSync
+
 A personalized workout application that provides tailored workout plans, tracks progress, and helps users maintain consistency.
-Live: fit-sync-lemon.vercel.app
 
-Tech Stack
+**Live:** [fit-sync-lemon.vercel.app](https://fit-sync-lemon.vercel.app)
 
-React 19
-Vite
-CSS
+---
 
+## Tech Stack
 
-Getting Started
-bash# Install dependencies
+- React 19
+- Vite
+- CSS
+
+---
+
+## Getting Started
+
+```bash
+# Install dependencies
 npm install
 
 # Start development server
@@ -18,8 +25,13 @@ npm run dev
 
 # Build for production
 npm run build
+```
 
-Folder Structure
+---
+
+## Folder Structure
+
+```
 FitSync/
 ├── public/             # Static assets
 ├── src/                # Application source code
@@ -27,3 +39,4 @@ FitSync/
 ├── vite.config.js      # Vite configuration
 ├── eslint.config.js    # ESLint configuration
 └── package.json        # Project dependencies
+```
